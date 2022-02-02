@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import Discord from 'Discord.js'
-import dotenv from "dotenv";
+import dotenv from "dotenv"
 
 dotenv.config()
 
