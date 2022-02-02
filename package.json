@@ -25,6 +25,10 @@
     "example",
     "heroku"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidccs/CoomBot.git"
+  },
   "homepage": "https://github.com/davidccs/CoomBot#readme",
   "dependencies": {
     "axios": "^0.24.0",
