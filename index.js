@@ -1,5 +1,8 @@
 import fetch from 'node-fetch'
 import Discord from 'Discord.js'
+import dotenv from "dotenv";
+
+dotenv.config()
 
 const nameList = [
     "Antonfuarr",
@@ -15,14 +18,14 @@ const nameList = [
     "Riven Bot"]
 
 async function getSummonerName() {
-
+ 
     let encryptedSummonerIdList = []
 
     for (var IGN of nameList) {
         const summonerURL = 'https://oc1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + IGN
 
         const headers = {
-            "X-Riot-Token": 'RGAPI-ebeed586-7d6e-4ea3-996b-2dad9cd7f610',
+            "X-Riot-Token": process.env.RIOT_API_KEY,
             method: 'GET'
         };
 
@@ -44,7 +47,7 @@ async function getSummonerEntry(encryptedList) {
         const summonerURL = 'https://oc1.api.riotgames.com/lol/league/v4/entries/by-summoner/' + encryptedId
 
         const headers = {
-            "X-Riot-Token": 'RGAPI-ebeed586-7d6e-4ea3-996b-2dad9cd7f610',
+            "X-Riot-Token": process.env.RIOT_API_KEY,
             method: 'GET'
         };
 
@@ -66,7 +69,6 @@ async function getSummonerEntry(encryptedList) {
     }
     return summonerInformationList
 }
-
 const encryptedList = await getSummonerName();
 
 var values = await getSummonerEntry(encryptedList)
@@ -77,11 +79,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-//make sure this line is the last line
-client.login('ODc3MTMwMDA2MjY5MTMyODMw.YRuI-Q.u18gc1gJ5cW8zbkaoadXPdg7PSw'); //login bot using token
+client.login(process.env.DISCORD_CLIENT_TOKEN); 
 
 client.on('message', msg => {
     if (msg.content === '/srrank') {
-      msg.reply(JSON.stringify(values[0], null, "\t"));
+      msg.reply(JSON.stringify(values, null, "\t"));
     }
 });
