@@ -1,2 +1,2 @@
 # CoomBot
-Discord Bot for League of Legends Coom Squa
+Discord Bot for League of Legends Coom Squad
