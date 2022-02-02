@@ -1,7 +1,8 @@
 import fetch from 'node-fetch'
 import Discord from 'Discord.js'
 
-const nameList = ["Antonfuarr",
+const nameList = [
+    "Antonfuarr",
     "Spade",
     "Reyrai",
     "DragonzXslayer",
