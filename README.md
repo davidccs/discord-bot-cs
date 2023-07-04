@@ -1,4 +1,4 @@
-# CoomBot
+# Description
 Discord Bot for League of Legends Coom Squad
 
 The Custom Discord Bot is a unique and personalized bot that I have built specifically for my Discord server. It is designed to cater to the specific needs and requirements of my community, providing a tailored experience that reflects the interests and preferences of my server members.
